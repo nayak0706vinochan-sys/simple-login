@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f2f4f8; display:flex; justify-content:center; padding-top:80px; }
+    .box { background:#fff; padding:30px; border-radius:8px; width:300px; box-shadow:0 2px 8px rgba(0,0,0,.15); }
+    input, button { width:100%; padding:10px; margin:8px 0; box-sizing:border-box; }
+    button { background:#2563eb; color:#fff; border:0; cursor:pointer; }
+    #message { margin-top:10px; font-weight:bold; }
+    .ok { color:green; } .err { color:red; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Name">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn" onclick="validateLogin()">Login</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    function validateLogin() {
+      var name = document.getElementById("username").value.trim();
+      var pass = document.getElementById("password").value;
+      var msg = document.getElementById("message");
+
+      if (name === "" || pass === "") {
+        msg.className = "err";
+        msg.innerText = "Name and password are required";
+      } else if (name === "admin" && pass === "admin123") {
+        msg.className = "ok";
+        msg.innerText = "Login successful";
+      } else {
+        msg.className = "err";
+        msg.innerText = "Invalid name or password";
+      }
+    }
+  </script>
+</body>
+</html>
